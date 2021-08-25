@@ -44,6 +44,7 @@ describe("Movie list tests", () => {
         await driver.sleep(1000)
     })
 
+    // This one only works because we are adding two movies and then deleting one. So there is only one ul li span to select.  If we added more movies we would need to be more specific
     test('Should return the correct movie title', async () => {
         let checkTitle = await (await driver).findElement(By.xpath('//ul/li/span')).getAttribute('innerText')
         expect(checkTitle).toBe('Speed Racer')
