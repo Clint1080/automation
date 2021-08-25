@@ -31,8 +31,17 @@ describe("Movie list tests", () => {
     })
 
     test('Should cross off a movie', async () => {
-        let crossOffMovie = await (await driver).findElement(By.name('q'))
+        let crossOffMovie = await (await driver).findElement(By.xpath('//ul/li/span'))
+        await crossOffMovie.click()
+        await driver.sleep(3000)
     })
 
+    test('Should delete a movie by title', async () => {
+        let deleteMovie = await (
+          await driver
+        ).findElement(By.xpath(`//*[@id="TheMatrix"]`));
+        await deleteMovie.click()
+        await driver.sleep(3000)
+    })
 })
 
